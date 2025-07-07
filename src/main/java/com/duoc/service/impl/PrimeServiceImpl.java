@@ -7,18 +7,20 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+import static com.duoc.constants.AppConstants.*;
+
 public class PrimeServiceImpl implements PrimeService {
 
     @Override
     public void addManually(PrimeList lista, Scanner sc) {
-        System.out.println("Ingrese numero primo para agregar");
+        System.out.println(MENSAJE1);
         int numero = sc.nextInt();
         try {
             if (!lista.contains(numero)) {
                 lista.add(numero);
-                System.out.println("Numero " + numero +  " agregado");
+                System.out.println(MENSAJE2 + numero + MENSAJE3);
             } else {
-                System.out.println("El numero " + numero + " ya existe en la lista.");
+                System.out.println(MENSAJE4 + numero + MENSAJE5 );
             }
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage());
@@ -27,7 +29,7 @@ public class PrimeServiceImpl implements PrimeService {
 
     @Override
     public void mostrarPrimes(List<Integer> lista) {
-        System.out.println("Lista de Numeros Primos ");
+        System.out.println(MENSAJE6);
         Collections.sort(lista);
         for(Integer numero : lista) {
             System.out.println(numero);
@@ -37,6 +39,6 @@ public class PrimeServiceImpl implements PrimeService {
 
     @Override
     public void mostrarMessageCount(int count) {
-        System.out.println("La cantidad de numeros primos en la lista es de : " + count);
+        System.out.println(MENSAJE_FINAL + count);
     }
 }

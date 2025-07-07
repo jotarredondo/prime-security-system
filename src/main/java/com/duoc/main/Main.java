@@ -31,7 +31,14 @@ public class Main {
 
             switch (opcion) {
                 case 1 -> primeService.addManually(primes, sc);
-                case 2 -> threadPrime.start();
+                case 2 -> {
+                    threadPrime.start();
+                    try {
+                        threadPrime.join();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
                 case 3 -> primeService.mostrarPrimes(primes);
                 case 4 -> primeService.mostrarMessageCount(primes.getPrimesCount());
                 case 5 -> System.out.println("Saliendo del programa...");

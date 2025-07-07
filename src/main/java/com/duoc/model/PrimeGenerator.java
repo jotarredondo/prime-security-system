@@ -18,4 +18,5 @@ public class PrimeGenerator implements Runnable {
         }
         System.out.println("Numeros primos agregados exitosamente ");
     }
+
 }
